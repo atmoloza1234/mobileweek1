@@ -4,6 +4,8 @@ void main() {
   callWeb("Google",protocal: "https",port : 443);
 }
 
+
+// การ return ภายในบรรทัดเดียว
 //String callGen(int year) => (year >= 1996) ? "Gen Z" : "Gen Y";
 
 //void callGen(int year){
