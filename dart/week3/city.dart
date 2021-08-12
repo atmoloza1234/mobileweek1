@@ -2,7 +2,7 @@ import 'country.dart';
 import 'problem.dart';
 //การสืบทอด
 class City extends Country with Problems {
-  City() : super("Paking","Panda");
+  City() : super("Tokyo","");
 
   void callSuper() {
     print("เมืองหลวง : " + super.city);
