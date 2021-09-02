@@ -6,6 +6,10 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
+List<String> imagePaths = [
+  "asset/image/facebook.png",
+  "asset/image/gmail.png"
+];
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
@@ -69,16 +73,19 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: 20,
                 ),
-                Text("OR",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
+                Text(
+                  "OR",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
                 Image.asset(
-                  ""
-                  ),
+                  "asset/image/facebook.png",
+                  width: size.width * 0.2,
+                  height: size.height * 0.2,
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
