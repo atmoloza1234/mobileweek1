@@ -82,7 +82,7 @@ class _RegisterState extends State<Register> {
                   ),
                   onPressed: () {
                     print("SignUP Complete");
-                    Navigator.pushNamed(context, 'Register');
+                    Navigator.pushNamed(context, 'Login');
                   },
                 ),
                 SizedBox(
