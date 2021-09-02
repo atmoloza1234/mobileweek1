@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile1/config/constant.dart';
+import 'package:mobile1/screen/login.dart';
+import 'package:mobile1/screen/register.dart';
 
 class Index extends StatelessWidget {
   @override
@@ -15,18 +20,18 @@ class Index extends StatelessWidget {
               left: -140,
               child: Image.network(
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8osvCFF-Ni0zuzpmU9pOc6DLcoGgPfYv50tjckP-WylES9qRhOlMKUr2ESHIuvcODoNg&usqp=CAU',
-                ),
-                ),
-                 Positioned(
+              ),
+            ),
+            Positioned(
               bottom: -120,
               left: -100,
               child: Image.asset(
                 'asset/image/gray.png',
-                ),
-                ),
+              ),
+            ),
             Column(
               children: [
-               SizedBox(
+                SizedBox(
                   height: 20,
                 ),
                 Image.asset(
@@ -58,7 +63,7 @@ class Index extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.orange[800],
+                    primary: pcolor,
                     shape: StadiumBorder(),
                     padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                   ),
@@ -67,7 +72,8 @@ class Index extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   onPressed: () {
-                    print("Success");
+                    print("Login");
+                    Navigator.pushNamed(context, 'Login');
                   },
                 ),
                 SizedBox(
@@ -75,7 +81,7 @@ class Index extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.orange[800],
+                    primary: pcolor,
                     shape: StadiumBorder(),
                     padding: EdgeInsets.fromLTRB(120, 10, 120, 10),
                   ),
@@ -84,7 +90,8 @@ class Index extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   onPressed: () {
-                    print("Thank you");
+                    print("Register");
+                    Navigator.pushNamed(context, 'Register');
                   },
                 ),
               ],
