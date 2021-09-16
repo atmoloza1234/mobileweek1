@@ -8,16 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:mobile1/screen/login.dart';
 import 'package:mobile1/screen/register.dart';
 
-
 void main() => runApp(KMUTNB());
 
-  /*var TCT = MaterialApp(
+/*var TCT = MaterialApp(
     home: Scaffold(
       body: Container(),
     ),
   );
   runApp(TCT);*/
-
 
 class KMUTNB extends StatelessWidget {
   @override
@@ -32,7 +30,7 @@ class KMUTNB extends StatelessWidget {
       theme: ThemeData(
         primaryColor: pcolor,
         //secondaryHeaderColor: scolor,
-        ),
+      ),
       //home: Login(),
     );
   }
