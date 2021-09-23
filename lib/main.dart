@@ -2,6 +2,7 @@
 
 //import 'home.dart';
 import 'package:mobile1/config/constant.dart';
+import 'package:mobile1/screen/dashboard.dart';
 import 'package:mobile1/screen/index.dart';
 
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class KMUTNB extends StatelessWidget {
       routes: {
         'Login': (context) => Login(),
         'Register': (context) => Register(),
+        'Dashboard': (context) => Dashboard(),
       },
       theme: ThemeData(
         primaryColor: pcolor,

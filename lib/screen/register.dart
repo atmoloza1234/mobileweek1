@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile1/backend/db.dart';
 import 'package:mobile1/config/constant.dart';
 
 class Register extends StatefulWidget {
@@ -205,12 +206,18 @@ class _RegisterState extends State<Register> {
           style: TextStyle(fontSize: 20),
         ),
         onPressed: () {
+          print("Hello");
+          // var local = new DBLocal();
+
+          var local = DBLocal();
+
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
-            print(
-                "Name : $username Email: $email Password: $password Re-Password: $repassword");
+            local.regis(username, email, password, repassword);
+            /*print(
+                "Name : $username Email: $email Password: $password Re-Password: $repassword");*/
             formkey.currentState!.reset();
-            print("SIGN UP Complete");
+            //print("SIGN UP Complete");
             Navigator.pushNamed(context, 'Login');
           }
         },

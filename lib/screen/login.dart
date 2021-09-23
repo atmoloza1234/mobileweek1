@@ -1,4 +1,7 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:mobile1/backend/db.dart';
 import 'package:mobile1/config/constant.dart';
 
 class Login extends StatefulWidget {
@@ -28,38 +31,43 @@ class _LoginState extends State<Login> {
             ),
           ),
         ),
-        body: Container(
-          alignment: Alignment.center,
-          child: Stack(
-            children: [
-              Column(
+        body: SingleChildScrollView(
+          child: Form(
+            key: formkey,
+            child: Container(
+              alignment: Alignment.center,
+              child: Stack(
                 children: [
-                  Image.asset(
-                    "asset/image/logo-kmutnb.png",
-                    width: size.width * 0.35,
-                    height: size.height * 0.2,
-                  ),
-                  sizebox(),
-                  txtUsername(),
-                  sizebox(),
-                  txtPassword(),
-                  sizebox(),
-                  btnSummit(),
-                  sizebox(),
-                  Text(
-                    "OR",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  Image.asset(
-                    "asset/image/facebook.png",
-                    width: size.width * 0.2,
-                    height: size.height * 0.2,
+                  Column(
+                    children: [
+                      Image.asset(
+                        "asset/image/logo-kmutnb.png",
+                        width: size.width * 0.35,
+                        height: size.height * 0.2,
+                      ),
+                      sizebox(),
+                      txtUsername(),
+                      sizebox(),
+                      txtPassword(),
+                      sizebox(),
+                      btnSummit(),
+                      sizebox(),
+                      Text(
+                        "OR",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      Image.asset(
+                        "asset/image/facebook.png",
+                        width: size.width * 0.2,
+                        height: size.height * 0.2,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),
@@ -84,7 +92,7 @@ class _LoginState extends State<Login> {
           }
         },
         onSaved: (value) {
-          username = value;
+          username = value!.trim();
         },
       ),
     );
@@ -124,7 +132,7 @@ class _LoginState extends State<Login> {
           }
         },*/
         onSaved: (value) {
-          password = value;
+          password = value!.trim();
         },
       ),
     );
@@ -147,12 +155,28 @@ class _LoginState extends State<Login> {
           style: TextStyle(fontSize: 18),
         ),
         onPressed: () {
+          print("Hello Login");
+          var local = DBLocal();
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
-            print("Name : $username Password: $password");
-            formkey.currentState!.reset();
-            print("LOGIN Complete");
-            //Navigator.pushNamed(context, 'Login');
+            local.login(username, password).then((response) {
+              if (response) {
+                print("Success");
+                Navigator.pushNamed(context, 'Dashboard');
+              } else {
+                print("Fail");
+                final snackBar = SnackBar(
+                  content: Text('ไม่พบข้อมูล'),
+                  backgroundColor: Colors.green[80],
+                );
+
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
+            });
+            //print("Name : $username Password: $password");
+            //formkey.currentState!.reset();
+            //print("LOGIN Complete");
+
           }
         },
       );
