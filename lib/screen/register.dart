@@ -33,28 +33,30 @@ class _RegisterState extends State<Register> {
             ),
           ),
         ),
-        body: Form(
-          key: formkey,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Image.asset(
-                  "asset/image/logo-kmutnb.png",
-                  width: size.width * 0.35,
-                  height: size.height * 0.2,
-                ),
-                sizebox(),
-                txtUsername(),
-                sizebox(),
-                txtEmail(),
-                sizebox(),
-                txtPassword(),
-                sizebox(),
-                txtRepassword(),
-                sizebox(),
-                btnSummit(),
-                sizebox(),
-              ],
+        body: SingleChildScrollView(
+          child: Form(
+            key: formkey,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.asset(
+                    "asset/image/logo-kmutnb.png",
+                    width: size.width * 0.35,
+                    height: size.height * 0.2,
+                  ),
+                  sizebox(),
+                  txtUsername(),
+                  sizebox(),
+                  txtEmail(),
+                  sizebox(),
+                  txtPassword(),
+                  sizebox(),
+                  txtRepassword(),
+                  sizebox(),
+                  btnSummit(),
+                  sizebox(),
+                ],
+              ),
             ),
           ),
         ),
