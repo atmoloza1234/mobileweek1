@@ -69,9 +69,30 @@ class _DashboardState extends State<Dashboard> {
                     fontSize: 20,
                   ),
                 ),
-                Text(data?.type ?? "loading..."),
-                Text('${data?.price ?? "loading..."}'),
-                Text('${data?.participants ?? "loading..."}'),
+                Text(
+                  data?.type ?? "loading...",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.pinkAccent.shade100,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(
+                  '${data?.price ?? "loading..."}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.pinkAccent.shade100,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(
+                  '${data?.participants ?? "loading..."}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.pinkAccent.shade100,
+                    fontSize: 20,
+                  ),
+                ),
               ],
             ),
           ),
