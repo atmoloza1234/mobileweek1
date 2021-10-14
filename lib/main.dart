@@ -3,11 +3,14 @@
 //import 'home.dart';
 import 'package:mobile1/config/constant.dart';
 import 'package:mobile1/screen/dashboard.dart';
+import 'package:mobile1/screen/img.dart';
 import 'package:mobile1/screen/index.dart';
 
 import 'package:flutter/material.dart';
+import 'package:mobile1/screen/location.dart';
 import 'package:mobile1/screen/login.dart';
 import 'package:mobile1/screen/register.dart';
+import 'package:mobile1/screen/video.dart';
 
 void main() => runApp(KMUTNB());
 
@@ -28,6 +31,9 @@ class KMUTNB extends StatelessWidget {
         'Login': (context) => Login(),
         'Register': (context) => Register(),
         'Dashboard': (context) => Dashboard(),
+        'PacImage': (context) => PacImage(),
+        'PacVideo': (context) => PacVideo(),
+        'PacLocation': (context) => PacLocation(),
       },
       theme: ThemeData(
         primaryColor: pcolor,

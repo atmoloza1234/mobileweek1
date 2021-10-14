@@ -1,11 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile1/config/constant.dart';
 import 'package:mobile1/model/tct.dart';
+import 'package:mobile1/screen/img.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -98,29 +98,90 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         drawer: Drawer(
-          // Add a ListView to the drawer. This ensures the user can scroll
-          // through the options in the drawer if there isn't enough vertical
-          // space to fit everything.
           child: ListView(
-            // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: pcolor,
+                ),
+                child: Text(
+                  "Menu",
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.lightBlueAccent[400],
+                  ),
+                ),
+              ),
               ListTile(
-                title: const Text('Item 1'),
+                title: Text(
+                  "Video",
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
+                  Navigator.popAndPushNamed(context, "PacVideo");
+                },
+                leading: Icon(
+                  Icons.video_call_rounded,
+                  size: 26,
+                  color: Colors.red[600],
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "Image",
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.popAndPushNamed(context, "PacImage");
+                },
+                leading: Icon(
+                  Icons.image_rounded,
+                  size: 26,
+                  color: Colors.green[700],
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "Location",
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.popAndPushNamed(context, "PacLocation");
+                },
+                leading: Icon(
+                  Icons.gps_fixed_rounded,
+                  size: 26,
+                  color: Colors.blue[800],
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'About Me',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                leading: Icon(Icons.contact_page_rounded),
+                onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: const Text('Logout'),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                leading: Icon(Icons.vpn_key_rounded),
                 onTap: () {
-                  // Update the state of the app
-                  // ...
-                  // Then close the drawer
-
                   Navigator.popAndPushNamed(context, "Login");
                 },
               ),
